@@ -1,0 +1,19 @@
+src/app.ts
+  s_0dd059f12a424a::t_37db0995f59351 37-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "381b871fee46afe563c026c4747a71724f87c5b5",
+  "prompts": {},
+  "sessions": {
+    "s_0dd059f12a424a": {
+      "agent_id": {
+        "tool": "devin",
+        "id": "s_0dd059f12a424a",
+        "model": "unknown"
+      },
+      "human_author": "Nikhil <vnikhilbuddhavarapu@outlook.com>"
+    }
+  }
+}
