@@ -9,7 +9,7 @@ export type Scenario = {
 };
 
 export const APP = {
-  slug: "ppug-dlp-redactor",
+  slug: "ppug-yvr-dlp-redactor",
   name: "DLP Redactor",
   tagline:
     "Clef spots sensitive data, Clairic pins the exact spans, and the LLM only sees placeholders.",

@@ -8,7 +8,7 @@ data loss prevention layer first: **Clef-flash** decides which kinds of sensitiv
 ever receives placeholders like `[CARD_1]` or `[NAME_2]`, and it can still do the job: draft the
 dispute email, summarise the patient note, debug the config.
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/vnikhilbuddhavarapu/ppug-dlp-redactor)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/vnikhilbuddhavarapu/ppug-yvr-dlp-redactor)
 
 ```
  "my card 4111…"   ┌──────────── Durable Object (one per chat session) ─────────────┐
@@ -41,8 +41,8 @@ dispute email, summarise the patient note, debug the config.
 Prerequisites: Node.js 24+, and a Cloudflare account (provided at the event).
 
 ```bash
-git clone https://github.com/vnikhilbuddhavarapu/ppug-dlp-redactor
-cd ppug-dlp-redactor
+git clone https://github.com/vnikhilbuddhavarapu/ppug-yvr-dlp-redactor
+cd ppug-yvr-dlp-redactor
 npm install
 npx wrangler login        # Workers AI has no local simulator, so dev talks to your account
 npm run dev               # http://localhost:5173
