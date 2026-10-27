@@ -1,0 +1,37 @@
+src/dlp/redact.ts
+  s_021c12b20a1c5e::t_08a4b504f09b3d 144-145,148-170,175-179,190-191
+src/server.ts
+  s_021c12b20a1c5e::t_8fe5256374158a 2,4,8-9,16-22,29-34,43-49,64,69-70,72,75,77-82,86-89,91-93,97-101,105-125,128-129,156-215,218-225,229-235,240-241,268-273,284,289-291,293-300
+src/shared.ts
+  s_021c12b20a1c5e::t_ce18c4c0f15225 86-108,115,122
+src/ui/extensions.tsx
+  s_021c12b20a1c5e::t_9370516dca0108 3-8,123-156,158,165-169,171-188
+src/dlp/images.ts
+  s_0630392c1bf546::t_70ca289201223e 1-131
+test/checkpoints.test.ts
+  s_0630392c1bf546::t_0e605ce46d6eba 1-88
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "5082888f053b8dbaf5d44a446d8d837c09e91ee7",
+  "prompts": {},
+  "sessions": {
+    "s_021c12b20a1c5e": {
+      "agent_id": {
+        "tool": "windsurf",
+        "id": "zany-bayberry",
+        "model": "unknown"
+      },
+      "human_author": "Nikhil <vnikhilbuddhavarapu@outlook.com>"
+    },
+    "s_0630392c1bf546": {
+      "agent_id": {
+        "tool": "devin",
+        "id": "s_0630392c1bf546",
+        "model": "unknown"
+      },
+      "human_author": "Nikhil <vnikhilbuddhavarapu@outlook.com>"
+    }
+  }
+}
