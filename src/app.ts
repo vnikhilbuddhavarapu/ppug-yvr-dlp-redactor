@@ -35,6 +35,12 @@ export const APP = {
         "My card 4111 1111 1111 1111 exp 09/29 was charged twice by Acme Cloud on Oct 3. Help me write a dispute email to my bank.",
     },
     {
+      // Checkpoint 2 territory: until image DLP exists, this screenshot reaches the LLM unredacted.
+      label: "Card screenshot",
+      prompt: "What does this image show?",
+      attachment: "/samples/card.png",
+    },
+    {
       label: "Nothing sensitive",
       prompt: "Write a haiku about Durable Objects.",
     },
