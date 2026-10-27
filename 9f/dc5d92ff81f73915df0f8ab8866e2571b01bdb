@@ -1,0 +1,101 @@
+.gitignore
+  s_021c12b20a1c5e::t_07ae18e1ea982a 1-10
+.oxfmtrc.json
+  s_021c12b20a1c5e::t_52a4faaa2d09be 1-5
+.oxlintrc.json
+  s_021c12b20a1c5e::t_296967e08d133a 1-9
+AGENTS.md
+  s_021c12b20a1c5e::t_87719438feaf74 1-63
+README.md
+  s_021c12b20a1c5e::t_99d0928522cf65 1-170
+env.d.ts
+  s_021c12b20a1c5e::t_cf6e30ff384f95 1-46
+index.html
+  s_021c12b20a1c5e::t_344997fc449d26 1-13
+package-lock.json
+  s_021c12b20a1c5e::t_ba0a2ec7caeeb8 1-9822
+package.json
+  s_021c12b20a1c5e::t_a923232ab688d8 1-50
+public/favicon.svg
+  s_021c12b20a1c5e::t_038ad53ac50796 1
+src/agent/system-one-agent.ts
+  s_021c12b20a1c5e::t_8781a5cdb60fa6 1-159
+src/app.ts
+  s_021c12b20a1c5e::t_72d1cd92e41a7f 1-42
+src/client.tsx
+  s_021c12b20a1c5e::t_36a14560ffb2f9 1-15
+src/dlp/classes.ts
+  s_021c12b20a1c5e::t_d54e0ed1b22ac3 1-98
+src/dlp/redact.ts
+  s_021c12b20a1c5e::t_b56282e390c333 1-177
+src/dlp/transcript.ts
+  s_021c12b20a1c5e::t_79834d27fe3341 1-46
+src/server.ts
+  s_021c12b20a1c5e::t_ceb4e50dd48892 1-185
+src/styles.css
+  s_021c12b20a1c5e::t_298d137f5fee0c 1-79
+src/system-one/clairic.ts
+  s_021c12b20a1c5e::t_d21eeb1486c55d 1-201
+src/system-one/clef.ts
+  s_021c12b20a1c5e::t_ca2c71f7b27ee9 1-152
+src/system-one/run.ts
+  s_021c12b20a1c5e::t_cd0b3bf0d4d5f7 1-78
+src/system-one/trace.ts
+  s_021c12b20a1c5e::t_d82ac61213d2f9 1-123
+src/ui/App.tsx
+  s_021c12b20a1c5e::t_6191c1ee4df149 1-232
+src/ui/Composer.tsx
+  s_021c12b20a1c5e::t_a0cf7e0b234167 1-155
+src/ui/Message.tsx
+  s_021c12b20a1c5e::t_0c799f5494a6c4 1-167
+src/ui/TracePanel.tsx
+  s_021c12b20a1c5e::t_e04a0d7d5f078d 1-193
+src/ui/extensions.tsx
+  s_021c12b20a1c5e::t_564c9a89f21ecc 1-134
+src/ui/primitives.tsx
+  s_021c12b20a1c5e::t_171fff82f39ac7 1-82
+test/clairic.test.ts
+  s_021c12b20a1c5e::t_61458078f87176 1-96
+test/clef.test.ts
+  s_021c12b20a1c5e::t_19328460805113 1-139
+test/dlp.test.ts
+  s_021c12b20a1c5e::t_73e966a4ddd5b2 1-172
+test/helpers.ts
+  s_021c12b20a1c5e::t_66d3175df232be 1-22
+test/trace.test.ts
+  s_021c12b20a1c5e::t_6635d6a097c5dd 1-101
+tsconfig.json
+  s_021c12b20a1c5e::t_40bc8ad8a20b00 1-4
+vite.config.ts
+  s_021c12b20a1c5e::t_cc49a092fcff80 1-9
+vitest.config.ts
+  s_021c12b20a1c5e::t_2892e154e7b93d 1-9
+wrangler.jsonc
+  s_021c12b20a1c5e::t_f5e4a8caadea89 1-28
+src/shared.ts
+  s_1e5fb81653bc05::t_c5296f219366cc 1-100
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "9fdc5d92ff81f73915df0f8ab8866e2571b01bdb",
+  "prompts": {},
+  "sessions": {
+    "s_021c12b20a1c5e": {
+      "agent_id": {
+        "tool": "windsurf",
+        "id": "zany-bayberry",
+        "model": "unknown"
+      },
+      "human_author": "Nikhil <vnikhilbuddhavarapu@outlook.com>"
+    },
+    "s_1e5fb81653bc05": {
+      "agent_id": {
+        "tool": "devin",
+        "id": "s_1e5fb81653bc05",
+        "model": "unknown"
+      },
+      "human_author": "Nikhil <vnikhilbuddhavarapu@outlook.com>"
+    }
+  }
+}
