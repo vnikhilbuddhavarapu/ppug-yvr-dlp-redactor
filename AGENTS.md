@@ -31,6 +31,7 @@ and consistent with the existing structure.
     (Clairic, only flagged classes) → `redact` → `saveReport` (state for the UI).
   - CHECKPOINT 1 (attendee): per-class policy applied before `redact()`.
   - CHECKPOINT 2 (attendee): image DLP with R2 (`env.UPLOADS`) plus Clef/Clairic `images`.
+  - CHECKPOINT 3 (attendee, boss level): output DLP in `onChatResponse()`, a `redactions` audit table (classes and counts only, never values), and a `compliance_report` tool.
 - `src/dlp/classes.ts`: `DATA_CLASSES` (one entry = Clef question + Clairic field + placeholder label),
   `DETECT_QUESTIONS`, `extractionFields()`, `flaggedClasses()`.
 - `src/dlp/redact.ts`: detectors (regex + Luhn), `clairicFindings()` (spans with fallback and value

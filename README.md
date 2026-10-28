@@ -70,9 +70,11 @@ Then ask *"What SSN did I give you?"*. Vault can't tell you, because it never sa
 
 ## Checkpoints
 
-The event runs for 90 minutes. Checkpoint 0 already works; the rest are yours.
+You have about **2 hours** of build time. Checkpoint 0 already works. Checkpoints 1 and 2 take most
+people 30-40 minutes each. Checkpoint 3 is the boss level: big enough to fill the rest of the time and
+make a great demo.
 
-### CHECKPOINT 0: explore the DLP layer (10 min)
+### CHECKPOINT 0: explore the DLP layer (15 min)
 
 - [`src/dlp/classes.ts`](src/dlp/classes.ts): `DATA_CLASSES` is the whole policy surface. Each class is one Clef
   question, one Clairic field and a placeholder label. **Add a class** (the patient note leaks a date
@@ -80,7 +82,7 @@ The event runs for 90 minutes. Checkpoint 0 already works; the rest are yours.
 - [`src/dlp/redact.ts`](src/dlp/redact.ts): detectors, span handling, merging and placeholders. All pure functions, all tested.
 - [`src/server.ts`](src/server.ts) → `beforeTurn()` and `scanText()` wire it into the agent.
 
-### CHECKPOINT 1: a per-class policy (25 min)
+### CHECKPOINT 1: a per-class policy (30-40 min)
 
 Today everything found is masked. Real DLP needs choices per class:
 
@@ -94,7 +96,7 @@ Today everything found is masked. Real DLP needs choices per class:
 2. Apply it in `scanText()` at the `CHECKPOINT 1` comment, before `redact()`.
 3. Bonus: add per-class dropdowns to the Redaction panel (`src/ui/extensions.tsx`).
 
-### CHECKPOINT 2: images and screenshots (25 min)
+### CHECKPOINT 2: images and screenshots (30-40 min)
 
 People paste screenshots of cards, IDs and dashboards. Clef and Clairic both read images.
 
@@ -105,7 +107,42 @@ People paste screenshots of cards, IDs and dashboards. Clef and Clairic both rea
 4. Never forward a sensitive image to the LLM: replace it with a text note such as
    `[image withheld by DLP: CARD, NAME]`.
 
-### Stretch goals (if you're fast)
+### CHECKPOINT 3, the boss level: output DLP + compliance report (rest of the build time)
+
+Real DLP watches both directions and can prove what it did, without keeping the secrets it removed.
+
+1. **Output DLP.** Override `onChatResponse()` and scan the LLM's reply with the same detection
+   (`DETECT_QUESTIONS` + `runDetectors`). Placeholders like `[CARD_1]` are fine; a real card number,
+   email or key in the reply is not. If the reply leaks something, post a warning with
+   `await this.deliverNotice({ markdown: "…" })`.
+2. **Audit log.** In `scanText()`, record every redaction in the agent's SQLite: the class, the count
+   and the sensitivity. **Never store the values themselves.**
+
+   ```ts
+   void this.sql`CREATE TABLE IF NOT EXISTS redactions (
+     at INTEGER NOT NULL, cls TEXT NOT NULL, n INTEGER NOT NULL, sensitivity REAL NOT NULL)`;
+   for (const [cls, n] of Object.entries(redaction.counts)) {
+     void this.sql`INSERT INTO redactions VALUES (${Date.now()}, ${cls}, ${n}, ${normalizedScore(answers.sensitivity)})`;
+   }
+   ```
+
+3. **Compliance report tool.** Give Vault a `compliance_report` tool that runs a `GROUP BY` over the
+   audit log, so you can ask *"how many card numbers and secrets did we block today?"*. The LLM gets
+   counts, never values.
+4. **Show it.** Add a small "Today" summary (counts per class) to the Redaction panel in
+   `src/ui/extensions.tsx`.
+
+**Done when:** a reply that leaks a value triggers a warning, and the compliance report answers from
+the audit log with no sensitive values anywhere in SQLite.
+
+### Or: bring your own use case
+
+Have a better idea? Use this starter as a base and build anything with Clef or Clairic. The agent,
+UI, Decision Trace and AI Gateway wiring are all reusable. See the
+[hackathon guide](https://github.com/vnikhilbuddhavarapu/ppug-yvr-system-one-hackathon#bring-your-own-use-case)
+for ideas and the two ground rules.
+
+### More stretch ideas
 
 - **Output DLP**: scan the LLM's reply in `onChatResponse()`. Did it reconstruct something it shouldn't have?
 - **Re-hydration for the owner**: show the user the reply with placeholders swapped back to the real
@@ -116,7 +153,7 @@ People paste screenshots of cards, IDs and dashboards. Clef and Clairic both rea
   redacted text so it is not stored at rest.
 - **Escalation**: low-confidence spans (`confidence < 0.6`) go to human review instead of auto-redaction.
 
-A reference implementation of checkpoints 1 and 2 lives on the `solutions` branch.
+Stuck on a checkpoint? Ask a Cloudflare facilitator: we have reference implementations and can point you in the right direction.
 
 ## How it works
 
